@@ -30,20 +30,51 @@ router.get('/:id', validateId, (req, res) => {
   res.status(200).json(req.action);
 });
 
-// router.get('/api/actions/:id', (req, res) => {
-//   const { id } = req.paraams;
-//   Actions.get(id)
-//     .then((actions) => {
-//       res.status(200).json(actions);
-//     })
-//     .catch((error) => {
-//       // log error to server
-//       console.log(error);
-//       res.status(500).json({
-//         message: 'Error retrieving the actions',
-//       });
-//     });
-// });
+router.post('/', (req, res) => {
+  Actions.insert(req.body)
+    .then((action) => {
+      res.status(201).json(action);
+    })
+    .catch((error) => {
+      // log error to server
+      console.log(error);
+      res.status(500).json({
+        message: 'Error adding the action',
+      });
+    });
+});
+
+router.put('/:id', (req, res) => {
+  Actions.update(req.params.id, req.body)
+    .then((action) => {
+      if (action) {
+        res.status(200).json(action);
+      } else {
+        res.status(404).json({ message: 'The action does not exist' });
+      }
+    })
+    .catch((error) => {
+      // log error to server
+      console.log(error);
+      res.status(500).json({
+        message: 'Error updating the action',
+      });
+    });
+});
+
+router.delete('/:id', validateId, (req, res) => {
+  Actions.remove(req.params.id)
+    .then((count) => {
+      res.status(200).json({ message: 'The action has been deleted' });
+    })
+    .catch((error) => {
+      // log error to server
+      console.log(error);
+      res.status(500).json({
+        message: 'Error deleting the action',
+      });
+    });
+});
 
 router.use((err, req, res, next) => {
   res.status(err.code).json({ message: err.message });
