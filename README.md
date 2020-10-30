@@ -56,17 +56,26 @@ We have provided test data for all the resources.
 
 Commit your code regularly and meaningfully. This helps both you (in case you ever need to return to old code for any number of reasons) and your team lead as the evaluate your solution.
 
+<!-- ____________________________________________________________________________- -->
+
 ## Interview Questions
 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. The core features of Node.js and Express and why they are useful.
+<!-- Node is  a usefull backend tool that works in concert with express to render responses to the client side in json format.  -->
 1. Understand and explain the use of Middleware?
+<!-- Series of functions that can be ran between the res & req to optimize delivery of req to client.  -->
 1. The basic principles of the REST architectural style.
+<!-- Representational State Transfer, an outline on how to structure your backend structure.  -->
 1. Understand and explain the use of Express Routers.
+<!-- How the server responds to client side requests. This helps create a more REstful server.  -->
 1. Describe tooling used to manually test the correctness of an API.
+<!-- Postman is what I use when I test to hit enpoints.  -->
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
+
+<!-- _______________________________________________________________________________________ -->
 
 ## Instructions
 
